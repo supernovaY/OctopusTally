@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Money from '@/views/Money.vue'
 import Labels from '@/views/Labels.vue'
 import Statistics from '@/views/Statistics.vue'
+import NotFound from "@/views/NotFound.vue";
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,10 @@ const routes = [
   {
     path: '/statistics',
     component: Statistics
+  },
+  {
+    path: '*', // 检查路径是否为上面设置的，否则跳到指定页面
+    component: NotFound
   }
 ]
 
