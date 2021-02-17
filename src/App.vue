@@ -1,33 +1,25 @@
 <template>
   <div>
-    <router-view/>
+    <router-view />
     <hr />
   </div>
 </template>
 
-<style lang="scss" scoped>
-*{
-  margin: 0; padding: 0;
-  box-sizing: border-box;
+<script lang="ts">
+export default {
+  name: "App.vue"
 }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="scss">
+@import "~@/assets/style/helper.scss";
+@import "~@/assets/style/reset.scss";
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  body{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #333;
+    line-height: 1.5;
+    font-family: $font-hei;
   }
-}
 </style>
