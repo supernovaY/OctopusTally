@@ -1,13 +1,12 @@
 <template>
   <div>
     <router-view />
-    <hr />
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  name: "App.vue"
+  name: "App"
 }
 </script>
 
@@ -21,5 +20,6 @@ export default {
     color: #333;
     line-height: 1.5;
     font-family: $font-hei;
+    font-size: 16px;
   }
 </style>
