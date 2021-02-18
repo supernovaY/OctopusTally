@@ -15,9 +15,9 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
 
 @Component
 export default class Types extends Vue{
-  type = '-' // '-'表示支出 '+'表示收入
+  // type = '-' // '-'表示支出 '+'表示收入
 
-  @Prop(Number) xxx: number | undefined
+  @Prop(Number) value!: string
   // Prop 告诉 Vue xxx 不是 data 是 prop
   // Number 告诉 Vue xxx 是个 Number
   // xxx 属性名
@@ -27,12 +27,13 @@ export default class Types extends Vue{
     if (type !== '-' && type !== '+') {
     throw new Error('type is unknown')
   }
-    this.type = type
+    this.$emit('update:value', type)
+    // this.type = type
   }
-  @Watch('type')
-  onTypeChanged(value: string){
-    this.$emit('update:value', value)
-  }
+  // @Watch('type')
+  // onTypeChanged(value: string){
+  //   this.$emit('update:value', value)
+  // }
 }
 // mounted(){
 //   if()
