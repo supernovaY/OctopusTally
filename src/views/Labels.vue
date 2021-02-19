@@ -1,14 +1,14 @@
 <template>
     <Layout>
     <div class="tags">
-      <router-link v-for="tag in tags" :key="tag.id"
+      <router-link class="tag" v-for="tag in tags" :key="tag.id"
       :to="`/labels/edit/${tag.id}`">
         <span>{{ tag.name }}</span>
         <Icon name="right"/>
       </router-link>
     </div>
     <div class="createTag-wrapper">
-      <button class="createTag" @click="createTag">新建标签</button>
+      <Button class="createTag" @click.native="createTag">新建标签</Button>
     </div>
     </Layout>
 </template>
@@ -17,9 +17,13 @@
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import tagListModel from '@/models/tagListModel';
+import Button from '@/components/Button.vue';
+import FormItem from '@/components/Money/FormItem.vue';
 tagListModel.fetch()
 
-@Component
+@Component({
+  components: {Button, FormItem}
+})
 export default class Labels extends Vue{
   tags = tagListModel.data
 
@@ -42,7 +46,7 @@ export default class Labels extends Vue{
   background: white;
   font-size: 16px;
   padding-left: 16px;
-  > li {
+  > .tag {
     min-height: 44px;
     display: flex;
     align-items: center;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label class="notes">
+    <label class="formItem">
       {{value}}
       <span class="name">{{this.fieldName}}</span>
       <input type="text"
@@ -12,13 +12,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {Component, Watch} from 'vue-property-decorator';
+import {Component, Prop, Watch} from 'vue-property-decorator';
 
 @Component
-export default class NumberPad extends Vue {
+export default class FormItem extends Vue {
   value = ''
-  @prop({required: true}) fieldName!: string
-  @prop() placeholder!: string
+  @Prop({required: true}) fieldName!: string
+  @Prop() placeholder!: string
 
   @Watch('value')
   onValueChanged(value: string){
@@ -28,9 +28,8 @@ export default class NumberPad extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.notes {
+.formItem {
   font-size: 14px;
-  background: #f5f5f5;
   padding-left: 16px;
   display: flex;
   align-items: center;
@@ -38,7 +37,7 @@ export default class NumberPad extends Vue {
     padding-right: 16px;
   }
   input {
-    height: 64px;
+    height: 40px;
     flex-grow: 1;
     background: transparent;
     border: none;
