@@ -2,10 +2,10 @@
   <div>
     <label class="notes">
       {{value}}
-      <span class="name">备注</span>
+      <span class="name">{{this.fieldName}}</span>
       <input type="text"
              v-model="value"
-             placeholder="在这里输入备注">
+             :placeholder="this.placeholder">
     </label>
   </div>
 </template>
@@ -17,6 +17,9 @@ import {Component, Watch} from 'vue-property-decorator';
 @Component
 export default class NumberPad extends Vue {
   value = ''
+  @prop({required: true}) fieldName!: string
+  @prop() placeholder!: string
+
   @Watch('value')
   onValueChanged(value: string){
     this.$emit('update:value', value)
