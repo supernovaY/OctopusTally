@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon">
+  <svg class="icon" @click="$emit('click', $event)">
     <use :xlink:href="'#' + name" />
   </svg>
 </template>
@@ -11,7 +11,7 @@ importAll(require.context('../assets/icons', true, /\.svg$/))
 
 export default {
   props:['name'],
-name: "Icon"
+  name: "Icon"
 }
 </script>
 
