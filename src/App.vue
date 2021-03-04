@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <router-view />
   </div>
 </template>
@@ -22,5 +22,9 @@ export default {
     font-family: $font-hei;
     font-size: 16px;
     background: #f5f5f5;
+  }
+  #app{
+    max-width: 500px;
+    margin: 0 auto;
   }
 </style>

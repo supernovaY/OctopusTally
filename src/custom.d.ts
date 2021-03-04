@@ -1,9 +1,17 @@
+type RootState = {
+    recordList: RecordItem[],
+    createRecordError: Error | null,
+    createTagError: Error | null,
+    tagList: Tag[],
+    currentTag?: Tag
+}
+
 type RecordItem = {
-    tags: string[]
+    tags: Tag[]
     notes: string
     type: string
     amount: number
-    createdAt?: Date
+    createdAt?: string
 }
 
 interface Window {
@@ -15,8 +23,8 @@ type Tag = {
 type TagListModel = {
     data: Tag[]
     fetch: () => Tag[]
-    create: (name:string) => string // success表示成功 duplicated表示重复
-    update: (id:string, name:string) => 'success' | 'not Found' | 'duplicated'
+    create: (name: string) => 'success' | 'duplicated' // 联合类型
+    update: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
     remove: (id: string) => boolean
-    save: ()=>void
+    save: () => void
 }
