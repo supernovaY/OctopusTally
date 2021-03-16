@@ -23,6 +23,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {Component, Prop} from 'vue-property-decorator';
+import router from '@/router';
 @Component
 export default class NumberPad extends Vue {
   @Prop(Number) readonly value!: number;
@@ -54,9 +55,14 @@ export default class NumberPad extends Vue {
   }
   ok() {
     const number = parseFloat(this.output);
-    this.$emit('update:value', number);
-    this.$emit('submit', number);
-    this.output = '0';
+    if ( number === 0 ) {
+      return alert('数额不能为0，请重新输入。')
+    } else {
+      this.$emit('update:value', number);
+      this.$emit('submit', number);
+      this.output = '0';
+      router.back()
+    }
   }
 }
 </script>
@@ -80,6 +86,7 @@ export default class NumberPad extends Vue {
       float: left;
       background: transparent;
       border: none;
+      border: 1px solid #eee;
       &.ok {
         height: 64*2px;
         float: right;
@@ -87,7 +94,7 @@ export default class NumberPad extends Vue {
       &.zero {
         width: 25*2%;
       }
-      $bg: #F2F2F2;
+      $bg: #deecec;
       &:nth-child(1) {
         background: $bg;
       }

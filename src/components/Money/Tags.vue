@@ -51,18 +51,20 @@ export default class Tags extends mixins(TagHelper) {
   > .current {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
     > li {
-      $bg: #d9d9d9;
+      $bg: #deecec;
+      color: #0f956f;
       background: $bg;
-      $h: 24px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
-      padding: 0 16px;
-      margin-right: 12px;
-      margin-top: 4px;
+      height: 32px;
+      border-radius: 5px;
+      border: 2px solid #eee;
+      width: 20%;
       &.selected{
-        background: darken($bg, 20%);
+        //background: darken($bg, 20%);
+        background: #0f956f;
+        color: #fff;
       }
     }
   }
